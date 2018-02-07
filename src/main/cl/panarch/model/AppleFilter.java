@@ -39,6 +39,14 @@ public class AppleFilter {
         return result;
     }
 
+    public static void prettyPrintApple(List<Apple> inventory, AppleFancyFormatter appleFormatter){
+
+        for(Apple a : inventory){
+            System.out.println(appleFormatter.accept(a));
+        }
+
+    }
+
     public static List<Apple> arrangeAppleInventory(List<Apple> inventory) {
         AppleSort appleSort = new AppleSort();
         Collections.sort(inventory, appleSort);

@@ -48,4 +48,13 @@ public class Apple {
     public void setId(int id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "Apple{" +
+                "color='" + color + '\'' +
+                ", weight=" + weight +
+                ", id=" + id +
+                '}';
+    }
 }

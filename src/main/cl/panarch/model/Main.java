@@ -35,7 +35,6 @@ public class Main {
         appleInventory.add(apple3);
         appleInventory.add(apple4);
 
-        AppleFilter.arrangeAppleInventory(appleInventory);
         List<Apple> heavyApples = appleInventory.stream().filter( (Apple a) -> a.getWeight() > 150)
                 .collect(Collectors.toList());
         System.out.println("Heavy Apples: "+heavyApples);
@@ -45,7 +44,8 @@ public class Main {
                 .collect(Collectors.toList());
         System.out.println("Green Heavy Apples: "+greenHeavyApples);
 
-
+        AppleFilter.arrangeAppleInventory(appleInventory);
+        AppleFilter.prettyPrintApple(appleInventory, new AppleFancyFormatter());
     }
 
 }
