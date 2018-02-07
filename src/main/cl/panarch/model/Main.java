@@ -46,6 +46,21 @@ public class Main {
 
         AppleFilter.arrangeAppleInventory(appleInventory);
         AppleFilter.prettyPrintApple(appleInventory, new AppleFancyFormatter());
+
+
+        List<Apple> greenApples = AppleFilter.filterApples(appleInventory, new GreenApplePredicate());
+        System.out.println(greenApples);
+
+        //anonimous class
+        List<Apple> redApples = AppleFilter.filterApples(appleInventory, new ApplePredicate(){
+                public boolean test(Apple apple){
+                    return "red".equals(apple.getColor());
+                }
+            });
+        System.out.println(redApples);
+
     }
+
+
 
 }

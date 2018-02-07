@@ -55,5 +55,13 @@ public class AppleFilter {
     }
 
 
-
+    public static List<Apple> filterApples(List<Apple> appleInventory, ApplePredicate applePredicate) {
+        List<Apple> result = new ArrayList<>();
+        for (Apple apple : appleInventory){
+            if (applePredicate.test(apple)){
+                result.add(apple);
+            }
+        }
+        return result;
+    }
 }
