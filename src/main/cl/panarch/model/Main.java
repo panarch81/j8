@@ -2,6 +2,7 @@ package main.cl.panarch.model;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,10 +31,23 @@ public class Main {
         apple4.setColor("green");
         apple4.setWeight(157);
 
+        Apple apple5 = new Apple();
+        apple5.setId(5);
+        apple5.setColor("red");
+        apple5.setWeight(121);
+
+        Apple apple6 = new Apple();
+        apple6.setId(6);
+        apple6.setColor("red");
+        apple6.setWeight(111);
+
+
         appleInventory.add(apple1);
         appleInventory.add(apple2);
         appleInventory.add(apple3);
         appleInventory.add(apple4);
+        appleInventory.add(apple5);
+        appleInventory.add(apple6);
 
         List<Apple> heavyApples = appleInventory.stream().filter( (Apple a) -> a.getWeight() > 150)
                 .collect(Collectors.toList());
@@ -59,6 +73,22 @@ public class Main {
             });
         System.out.println(redApples);
 
+        //lamdas
+        List<Apple> redLightApples = AppleFilter.filterApples(appleInventory,
+                a -> ("red".equals(a.getColor()) && a.getWeight()<150));
+
+        //
+        List<Integer> intNumbers = Arrays.asList(3,5,6,7,1,8,2);
+
+        List<Integer> evenNumbers = intNumbers.stream().filter(i -> (i%2==0))
+                .sorted()
+                .collect(Collectors.toList());
+
+        System.out.println("Even Numbers:"+evenNumbers);
+
+        List<Integer> oddNumbers = AppleFilter.filterss(intNumbers, i -> (i%2!=0));
+
+        System.out.println("Odd Numbers:"+oddNumbers);
     }
 
 

@@ -64,4 +64,14 @@ public class AppleFilter {
         }
         return result;
     }
+
+    public static <T> List<T> filterss(List<T> list, Predicate<T> p){
+        List<T> result = new ArrayList<T>();
+        for(T e : list){
+            if(p.test(e)){
+                result.add(e);
+            }
+        }
+        return result;
+    }
 }
